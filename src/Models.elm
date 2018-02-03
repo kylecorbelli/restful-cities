@@ -32,6 +32,24 @@ type alias Entities =
     }
 
 
+type Route
+    = StatesRoute
+    | StateRoute StateId
+    | CitiesRoute
+    | CityRoute CityId
+    | NewCityRoute
+    | NotFoundRoute
+
+
+type alias NewCityFormFields =
+    { nameField : String
+    , populationField : String
+    , stateId : StateId
+    }
+
+
 type alias Model =
     { entities : Entities
+    , route : Route
+    , newCityFormFields : NewCityFormFields
     }
