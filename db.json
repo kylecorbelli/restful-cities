@@ -1,0 +1,42 @@
+{
+  "states": [
+    {
+      "abbreviation": "CA",
+      "id": "1",
+      "name": "California"
+    },
+    {
+      "abbreviation": "TX",
+      "id": "2",
+      "name": "Texas"
+    },
+    {
+      "abbreviation": "NC",
+      "id": "3",
+      "name": "North Carolina"
+    },
+    {
+      "abbreviation": "PA",
+      "id": "4",
+      "name": "Pennsylvania"
+    },
+    {
+      "abbreviation": "SC",
+      "id": "5",
+      "name": "South Carolina"
+    },
+    {
+      "abbreviation": "RI",
+      "id": "6",
+      "name": "Rhode Island"
+    }
+  ],
+  "cities": [
+    {
+      "id": "1",
+      "name": "Petaluma",
+      "population": 60530,
+      "stateId": "1"
+    }
+  ]
+}
