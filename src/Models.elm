@@ -26,6 +26,17 @@ type alias City =
     }
 
 
+
+-- How can we clean this up?
+
+
+type alias CityPayload =
+    { name : String
+    , population : Int
+    , stateId : StateId
+    }
+
+
 type alias Entities =
     { citiesById : Dict CityId City
     , statesById : Dict StateId State

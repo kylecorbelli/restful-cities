@@ -54,6 +54,7 @@ stateView stateId model =
                 div []
                     [ h1 [] [ text state.name ]
                     , h3 [] [ text "Cities" ]
+                    , a [ href "#/cities/new" ] [ text "Add new city" ]
                     , ul [] (List.map renderCityPreview cities)
                     ]
 

@@ -12,4 +12,6 @@ type Msg
     | UpdateNewCityState StateId
     | UpdateNewCityName String
     | UpdateNewCityPopulation String
+    | CreateCityRequestSent
+    | CreateCityRequestComplete (Result Http.Error City)
     | NoOp

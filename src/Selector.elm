@@ -4,6 +4,7 @@ import Dict
 import Models exposing (Model, City, State)
 
 
+entitiesList : { b | entities : a } -> (a -> Dict.Dict comparable a2) -> List a2
 entitiesList model prop =
     model.entities
         |> prop

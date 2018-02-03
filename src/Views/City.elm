@@ -1,18 +1,19 @@
 module Views.City exposing (..)
 
 import Dict exposing (Dict)
-import Html exposing (a, div, form, h1, h3, Html, input, li, option, select, text, ul)
+import Html exposing (a, button, div, form, h1, h3, Html, input, li, option, select, text, ul)
 import Html.Attributes exposing (disabled, href, placeholder, selected, type_, value)
-import Html.Events exposing (onInput)
+import Html.Events exposing (onInput, onWithOptions)
+import Json.Decode as Decode
 import Models exposing (City, CityId, Model, State, StateId)
-import Msgs exposing (Msg(UpdateNewCityName, UpdateNewCityPopulation, UpdateNewCityState))
+import Msgs exposing (Msg(CreateCityRequestSent, UpdateNewCityName, UpdateNewCityPopulation, UpdateNewCityState))
 import Selector
 
 
 renderCityPreview : City -> Html Msg
 renderCityPreview city =
     li []
-        [ a [ href <| "#cities/" ++ city.id ] [ text city.name ]
+        [ a [ href <| "#/cities/" ++ city.id ] [ text city.name ]
         ]
 
 
@@ -55,12 +56,13 @@ newCityView model =
     in
         div []
             [ h1 [] [ text "Add New City" ]
-            , form []
-                [ input [ type_ "text", placeholder "city name", onInput UpdateNewCityName ] []
-                , input [ type_ "number", placeholder "city population", onInput UpdateNewCityPopulation ] []
+            , form [ onWithOptions "submit" { stopPropagation = True, preventDefault = True } (Decode.succeed CreateCityRequestSent) ]
+                [ input [ type_ "text", placeholder "city name", onInput UpdateNewCityName, value model.newCityFormFields.nameField ] []
+                , input [ type_ "number", placeholder "city population", onInput UpdateNewCityPopulation, value model.newCityFormFields.populationField ] []
                 , select [ onInput UpdateNewCityState ]
                     ([ option [ value "", disabled True, selected True ] [ text "Select a State" ] ]
                         ++ (List.map renderStateOption states)
                     )
+                , button [ type_ "submit" ] [ text "Add City" ]
                 ]
             ]
