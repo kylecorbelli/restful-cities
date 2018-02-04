@@ -1,8 +1,8 @@
 module Commands exposing (..)
 
-import Http exposing (jsonBody)
+import Http exposing (emptyBody, expectJson, jsonBody)
 import Decoders exposing (..)
-import Models exposing (City, CityPayload)
+import Models exposing (City, CityId, CityPayload)
 import Msgs exposing (..)
 import Json.Encode as Encode
 
@@ -15,6 +15,11 @@ baseApiUrl =
 citiesUrl : String
 citiesUrl =
     baseApiUrl ++ "/cities"
+
+
+cityUrl : CityId -> String
+cityUrl cityId =
+    citiesUrl ++ "/" ++ cityId
 
 
 statesUrl : String
@@ -50,3 +55,21 @@ createNewCity : CityPayload -> Cmd Msg
 createNewCity cityPayload =
     Http.post citiesUrl (cityEncoder cityPayload |> jsonBody) cityDecoder
         |> Http.send CreateCityRequestComplete
+
+
+deleteCity : CityId -> Cmd Msg
+deleteCity cityId =
+    let
+        request =
+            Http.request
+                { method = "DELETE"
+                , body = emptyBody
+                , expect = expectJson emptyObjectDecoder
+                , headers = []
+                , timeout = Nothing
+                , url = cityUrl cityId
+                , withCredentials = False
+                }
+    in
+        request
+            |> Http.send (DeleteCityRequestComplete cityId)

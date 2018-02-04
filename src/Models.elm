@@ -49,6 +49,7 @@ type Route
     | CitiesRoute
     | CityRoute CityId
     | NewCityRoute
+    | DeleteCityConfirmationRoute CityId
     | NotFoundRoute
 
 

@@ -1,5 +1,6 @@
 module Msgs exposing (..)
 
+import Dict exposing (Dict)
 import Http
 import Models exposing (..)
 import Navigation exposing (Location)
@@ -14,4 +15,6 @@ type Msg
     | UpdateNewCityPopulation String
     | CreateCityRequestSent
     | CreateCityRequestComplete (Result Http.Error City)
+    | DeleteCityRequestSent CityId
+    | DeleteCityRequestComplete CityId (Result Http.Error (Dict String String))
     | NoOp

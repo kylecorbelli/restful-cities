@@ -137,5 +137,27 @@ update msg model =
                 Err error ->
                     ( model, Cmd.none )
 
+        DeleteCityRequestSent cityId ->
+            ( model, deleteCity cityId )
+
+        DeleteCityRequestComplete cityId result ->
+            case result of
+                Ok city ->
+                    let
+                        existingEntities =
+                            model.entities
+
+                        updatedCitiesById =
+                            model.entities.citiesById
+                                |> Dict.remove cityId
+
+                        updatedEntities =
+                            { existingEntities | citiesById = updatedCitiesById }
+                    in
+                        ( { model | entities = updatedEntities }, newUrl "#/cities" )
+
+                Err error ->
+                    ( model, Cmd.none )
+
         NoOp ->
             ( model, Cmd.none )

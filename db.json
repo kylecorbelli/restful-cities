@@ -33,16 +33,16 @@
   ],
   "cities": [
     {
-      "id": "1",
       "name": "Petaluma",
-      "population": 60530,
-      "stateId": "1"
+      "population": 60000,
+      "stateId": "1",
+      "id": "1"
     },
     {
-      "name": "Raleigh",
-      "population": 460000,
-      "stateId": "3",
-      "id": "XT2Pye~"
+      "name": "Providence",
+      "population": 180000,
+      "stateId": "6",
+      "id": "9xjZeIl"
     }
   ]
 }

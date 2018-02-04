@@ -8,8 +8,12 @@
   },
   "scripts": {
     "server": "json-server --watch db.json",
+    "start": "nf start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Kyle Corbelli",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "foreman": "^2.0.0"
+  }
 }

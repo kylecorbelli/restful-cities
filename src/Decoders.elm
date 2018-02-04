@@ -1,5 +1,6 @@
 module Decoders exposing (..)
 
+import Dict exposing (Dict)
 import Json.Decode as Decode exposing (..)
 import Models exposing (..)
 
@@ -29,3 +30,8 @@ stateDecoder =
 statesDecoder : Decoder (List State)
 statesDecoder =
     list stateDecoder
+
+
+emptyObjectDecoder : Decoder (Dict String String)
+emptyObjectDecoder =
+    dict string
