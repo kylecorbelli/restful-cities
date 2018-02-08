@@ -106,14 +106,11 @@ update msg model =
                                         existingEditEntities =
                                             model.editEntities
 
-                                        existingEditEntitiesCitiesById =
-                                            model.editEntities.citiesById
-
                                         newEditEntitiesCitiesById =
                                             Dict.update
                                                 cityId
                                                 (Maybe.map (\cityEditFields -> { name = city.name, population = city.population |> toString, stateId = city.stateId }))
-                                                existingEditEntitiesCitiesById
+                                                model.editEntities.citiesById
 
                                         updatedEditEntities =
                                             { existingEditEntities | citiesById = newEditEntitiesCitiesById }
