@@ -13,3 +13,35 @@ img {
   margin: 20px 0;
   max-width: 200px;
 }
+
+.btn {
+  background-color: white;
+  border: 1px solid darkgray;
+  color: darkgray;
+  cursor: pointer;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  transition: background-color 0.1s ease-in, color 0.1s ease-in;
+}
+
+.btn:hover {
+  background-color: darkgray;
+  color: white;
+}
+
+.mb--1 {
+  margin-bottom: 1em;
+}
+
+.ml--1 {
+  margin-left: 1em;
+}
+
+.mr--1 {
+  margin-right: 1em;
+}
+
+.mt--1 {
+  margin-top: 1em;
+}
+

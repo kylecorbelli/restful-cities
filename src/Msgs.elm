@@ -13,6 +13,11 @@ type Msg
     | UpdateNewCityState StateId
     | UpdateNewCityName String
     | UpdateNewCityPopulation String
+    | UpdateEditCityState CityId StateId
+    | UpdateEditCityName CityId String
+    | UpdateEditCityPopulation CityId String
+    | EditCityRequestSent CityId
+    | EditCityRequestComplete (Result Http.Error City)
     | CreateCityRequestSent
     | CreateCityRequestComplete (Result Http.Error City)
     | DeleteCityRequestSent CityId

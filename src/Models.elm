@@ -43,12 +43,18 @@ type alias Entities =
     }
 
 
+type alias EditEntities =
+    { citiesById : Dict CityId EditCityFormFields
+    }
+
+
 type Route
     = StatesRoute
     | StateRoute StateId
     | CitiesRoute
     | CityRoute CityId
     | NewCityRoute
+    | EditCityRoute CityId
     | DeleteCityConfirmationRoute CityId
     | NotFoundRoute
 
@@ -60,8 +66,17 @@ type alias NewCityFormFields =
     }
 
 
+type alias EditCityFormFields =
+    { name : String
+    , population : String
+    , stateId : StateId
+    }
+
+
 type alias Model =
     { entities : Entities
+    , editEntities : EditEntities
     , route : Route
     , newCityFormFields : NewCityFormFields
+    , editCityFormFields : EditCityFormFields
     }

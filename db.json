@@ -34,15 +34,27 @@
   "cities": [
     {
       "name": "Petaluma",
-      "population": 60000,
+      "population": 60200,
       "stateId": "1",
       "id": "1"
     },
     {
-      "name": "Providence",
-      "population": 180000,
-      "stateId": "6",
+      "name": "Daily City",
+      "population": 70000,
+      "stateId": "1",
       "id": "9xjZeIl"
+    },
+    {
+      "name": "LA",
+      "population": 4800000,
+      "stateId": "1",
+      "id": "FerTWfp"
+    },
+    {
+      "name": "Raleigh",
+      "population": 458000,
+      "stateId": "3",
+      "id": "qC6sf_H"
     }
   ]
 }

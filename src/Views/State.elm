@@ -2,7 +2,7 @@ module Views.State exposing (..)
 
 import Dict exposing (Dict)
 import Html exposing (a, div, h1, h3, Html, li, text, ul)
-import Html.Attributes exposing (href)
+import Html.Attributes exposing (class, href)
 import Models exposing (City, CityId, Model, State, StateId)
 import Msgs exposing (Msg)
 
@@ -54,7 +54,7 @@ stateView stateId model =
                 div []
                     [ h1 [] [ text state.name ]
                     , h3 [] [ text "Cities" ]
-                    , a [ href "#/cities/new" ] [ text "Add new city" ]
+                    , a [ class "btn", href "#/cities/new" ] [ text "Add new city" ]
                     , ul [] (List.map renderCityPreview cities)
                     ]
 

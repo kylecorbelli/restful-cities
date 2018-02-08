@@ -51,6 +51,19 @@ cityEncoder cityPayload =
         Encode.object attributes
 
 
+updateCityEncoder : City -> Encode.Value
+updateCityEncoder city =
+    let
+        attributes =
+            [ ( "id", Encode.string city.name )
+            , ( "name", Encode.string city.name )
+            , ( "population", Encode.int city.population )
+            , ( "stateId", Encode.string city.stateId )
+            ]
+    in
+        Encode.object attributes
+
+
 createNewCity : CityPayload -> Cmd Msg
 createNewCity cityPayload =
     Http.post citiesUrl (cityEncoder cityPayload |> jsonBody) cityDecoder
@@ -73,3 +86,21 @@ deleteCity cityId =
     in
         request
             |> Http.send (DeleteCityRequestComplete cityId)
+
+
+updateCity : City -> Cmd Msg
+updateCity city =
+    let
+        request =
+            Http.request
+                { body = city |> updateCityEncoder |> jsonBody
+                , expect = expectJson cityDecoder
+                , headers = []
+                , method = "PATCH"
+                , timeout = Nothing
+                , url = cityUrl city.id
+                , withCredentials = False
+                }
+    in
+        request
+            |> Http.send EditCityRequestComplete
