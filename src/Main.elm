@@ -24,11 +24,6 @@ initialModel route =
         , populationField = ""
         , stateId = ""
         }
-    , editCityFormFields =
-        { name = ""
-        , population = ""
-        , stateId = ""
-        }
     }
 
 

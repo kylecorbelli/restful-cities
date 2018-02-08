@@ -78,5 +78,4 @@ type alias Model =
     , editEntities : EditEntities
     , route : Route
     , newCityFormFields : NewCityFormFields
-    , editCityFormFields : EditCityFormFields
     }
